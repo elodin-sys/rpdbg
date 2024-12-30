@@ -1,0 +1,10 @@
+ato-version: ^0.2.0
+
+builds:
+  default:
+    entry: elec/src/build.ato:Build
+
+pcb:
+  name: "RP2040"
+  description: "Microcontroller in QFN Package"
+  datasheet: "https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf"

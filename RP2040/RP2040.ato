@@ -1,0 +1,108 @@
+from "generics/interfaces.ato" import USB2, QSPI, Power
+
+module RP2040:
+    mcu = new _RP2040
+
+component _RP2040:
+    datasheet = "https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf"
+    description = "Microcontroller in QFN Package"
+    footprint = "QFN40P700X700X90-57N-D"
+    manufacturer = "RASPBERRY-PI"
+    mpn = "RP2040"
+    designator_prefix = "U"
+
+    """Signals"""
+    signal adc_avdd ~ pin 43
+    signal dvdd ~ pin 23
+    dvdd ~ pin 50
+    signal iovdd ~ pin 1
+    iovdd ~ pin 10
+    iovdd ~ pin 22
+    iovdd ~ pin 33
+    iovdd ~ pin 42
+    iovdd ~ pin 49
+    signal usb_vdd ~ pin 48
+    signal vreg_vin ~ pin 44
+    signal vreg_vout ~ pin 45
+    signal gnd ~ pin 57
+
+    signal xin ~ pin 20
+    signal xout ~ pin 21
+
+    signal qspi_sclk ~ pin 52
+    signal qspi_sd0 ~ pin 53
+    signal qspi_sd1 ~ pin 55
+    signal qspi_sd2 ~ pin 54
+    signal qspi_sd3 ~ pin 51
+    signal qspi_ss_n ~ pin 56
+
+    signal run ~ pin 26
+    signal swclk ~ pin 24
+    signal swdio ~ pin 25
+    signal testen ~ pin 19
+
+    signal usb_dm ~ pin 46
+    signal usb_dp ~ pin 47
+
+    signal gpio0 ~ pin 2
+    signal gpio1 ~ pin 3
+    signal gpio2 ~ pin 4
+    signal gpio3 ~ pin 5
+    signal gpio4 ~ pin 6
+    signal gpio5 ~ pin 7
+    signal gpio6 ~ pin 8
+    signal gpio7 ~ pin 9
+    signal gpio8 ~ pin 11
+    signal gpio9 ~ pin 12
+    signal gpio10 ~ pin 13
+    signal gpio11 ~ pin 14
+    signal gpio12 ~ pin 15
+    signal gpio13 ~ pin 16
+    signal gpio14 ~ pin 17
+    signal gpio15 ~ pin 18
+    signal gpio16 ~ pin 27
+    signal gpio17 ~ pin 28
+    signal gpio18 ~ pin 29
+    signal gpio19 ~ pin 30
+    signal gpio20 ~ pin 31
+    signal gpio21 ~ pin 32
+    signal gpio22 ~ pin 34
+    signal gpio23 ~ pin 35
+    signal gpio24 ~ pin 36
+    signal gpio25 ~ pin 37
+    signal gpio26_a0 ~ pin 38
+    signal gpio27_a1 ~ pin 39
+    signal gpio28_a2 ~ pin 40
+    signal gpio29_a3 ~ pin 41
+
+    # The TESTEN pin is used for factory testing and should be tied to GND
+    gnd ~ testen
+
+    # DVDD is a nominal 1v1
+    power_1v1 = new Power
+    power_1v1.vcc ~ dvdd
+    power_1v1.gnd ~ gnd
+
+    # IOVDD is a nominal 3v3
+    power_3v3 = new Power
+    power_3v3.vcc ~ iovdd
+    power_3v3.vcc ~ adc_avdd
+    power_3v3.vcc ~ usb_vdd
+    power_3v3.gnd ~ gnd
+
+    vreg_vin ~ power_3v3.vcc
+    vreg_vout ~ power_1v1.vcc
+
+    # QSPI interface
+    qspi = new QSPI
+    qspi.cs ~ qspi_ss_n
+    qspi.sck ~ qspi_sclk
+    qspi.io0 ~ qspi_sd0
+    qspi.io1 ~ qspi_sd1
+    qspi.io2 ~ qspi_sd2
+    qspi.io3 ~ qspi_sd3
+
+    # USB interface
+    usb2 = new USB2
+    usb2.dp ~ usb_dp
+    usb2.dm ~ usb_dm

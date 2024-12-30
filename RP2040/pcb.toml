@@ -1,0 +1,11 @@
+[module]
+name = "RP2040"
+entry = "RP2040.ato:RP2040"
+description = "Microcontroller in QFN Package"
+datasheet = "https://datasheets.raspberrypi.org/rp2040/rp2040-datasheet.pdf"
+
+[registries]
+diodelib = { url = "git@github.com:dioderobot/diodelib.git", rev = "main" }
+
+[dependencies]
+generics = { path = "generics", registry = "diodelib" }

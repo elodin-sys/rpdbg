@@ -1,0 +1,7 @@
+[module]
+name = "rpdbg"
+entry = "rpdbg.ato:Rpdbg"
+tags = []
+
+[docs]
+datasheet = "docs/rpdbg.typ"

@@ -1,0 +1,4 @@
+from "../../RP2040.ato" import RP2040
+
+module Build:
+    mcu = new RP2040
