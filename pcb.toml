@@ -5,3 +5,6 @@ tags = []
 
 [docs]
 datasheet = "docs/rpdbg.typ"
+
+[dependencies]
+RP2040 = { path = "parts/RP2040" }

@@ -9,3 +9,5 @@ diodelib = { url = "git@github.com:dioderobot/diodelib.git", rev = "main" }
 
 [dependencies]
 generics = { path = "generics", registry = "diodelib" }
+abm8_272_t3 = { path = "../ABM8-272-T3" }
+w25q16jvuxiq = { path = "../W25Q16JVUXIQ" }

@@ -1,0 +1,4 @@
+from "../../W25Q16JVUXIQ.ato" import W25Q16JVUXIQ
+
+module Build:
+    ic = new W25Q16JVUXIQ

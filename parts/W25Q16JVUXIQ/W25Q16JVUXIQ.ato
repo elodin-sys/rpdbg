@@ -1,0 +1,30 @@
+from "generics/interfaces.ato" import QSPI, Power
+
+component W25Q16JVUXIQ:
+    datasheet = "https://componentsearchengine.com/Datasheets/1/W25Q16JVUXIQ TR.pdf"
+    description = "NOR Flash spiFlash, 3V, 16M-bit, 4Kb Uniform Sector, DTR"
+    footprint = "SON50P300X200X60-9N"
+    manufacturer = "Winbond"
+    mpn = "W25Q16JVUXIQ"
+
+    # pins
+    signal ncs ~ pin 1
+    signal do ~ pin 2
+    signal io2 ~ pin 3
+    signal gnd ~ pin 4
+    signal di ~ pin 5
+    signal clk ~ pin 6
+    signal io3 ~ pin 7
+    signal vcc ~ pin 8
+
+    power = new Power
+    power.gnd ~ gnd
+    power.vcc ~ vcc
+
+    qspi = new QSPI
+    qspi.cs ~ ncs
+    qspi.sck ~ clk
+    qspi.io0 ~ di
+    qspi.io1 ~ do
+    qspi.io2 ~ io2
+    qspi.io3 ~ io3

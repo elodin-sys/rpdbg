@@ -1,0 +1,4 @@
+from "../../ABM8272T3.ato" import ABM8272T3
+
+module Build:
+    ic = new ABM8272T3

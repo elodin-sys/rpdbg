@@ -1,0 +1,11 @@
+[module]
+name = "W25Q16JVUXIQ"
+entry = "W25Q16JVUXIQ.ato:W25Q16JVUXIQ"
+description = "NOR Flash spiFlash, 3V, 16M-bit, 4Kb Uniform Sector, DTR"
+datasheet = "https://componentsearchengine.com/Datasheets/1/W25Q16JVUXIQ TR.pdf"
+
+[registries]
+diodelib = { url = "git@github.com:dioderobot/diodelib.git", rev = "main" }
+
+[dependencies]
+generics = { path = "generics", registry = "diodelib" }

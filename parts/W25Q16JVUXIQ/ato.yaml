@@ -1,0 +1,10 @@
+ato-version: ^0.2.0
+
+builds:
+  default:
+    entry: elec/src/build.ato:Build
+
+pcb:
+  name: "W25Q16JVUXIQ"
+  description: "NOR Flash spiFlash, 3V, 16M-bit, 4Kb Uniform Sector, DTR"
+  datasheet: "https://componentsearchengine.com/Datasheets/1/W25Q16JVUXIQ TR.pdf"

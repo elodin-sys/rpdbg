@@ -1,10 +1,7 @@
+from "rp2040/RP2040.ato" import RP2040
+
+module Debugger from RP2040:
+    signal test
+
 module Rpdbg:
-    """Parameters"""
-
-    """Interfaces"""
-
-    """Components"""
-
-    """Values"""
-
-    """Connections"""
+    dbg = new Debugger
